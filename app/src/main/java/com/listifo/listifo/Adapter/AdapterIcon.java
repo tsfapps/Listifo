@@ -15,20 +15,20 @@ import com.listifo.listifo.R;
 
 import java.util.List;
 
-public class AdapterOne extends RecyclerView.Adapter<AdapterOne.MyViewholder> {
+public class AdapterIcon extends RecyclerView.Adapter<AdapterIcon.MyViewholder> {
 
 
     private Context context;
     private List<IconModel> IconModels;
 
-    public AdapterOne(Context context, List<IconModel> IconModels) {
+    public AdapterIcon(Context context, List<IconModel> IconModels) {
         this.context = context;
         this.IconModels = IconModels;
     }
 
     @NonNull
     @Override
-    public AdapterOne.MyViewholder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public AdapterIcon.MyViewholder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.model_icon, viewGroup, false);
         return new MyViewholder(view);
@@ -36,7 +36,7 @@ public class AdapterOne extends RecyclerView.Adapter<AdapterOne.MyViewholder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterOne.MyViewholder myViewholder, int i) {
+    public void onBindViewHolder(@NonNull AdapterIcon.MyViewholder myViewholder, int i) {
 
         IconModel im = IconModels.get(i);
 
@@ -48,10 +48,12 @@ public class AdapterOne extends RecyclerView.Adapter<AdapterOne.MyViewholder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+
+        return IconModels.size();
+
     }
 
-    public class MyViewholder extends RecyclerView.ViewHolder{
+    public class MyViewholder extends RecyclerView.ViewHolder {
         private TextView tv_icon_title;
         private ImageView iv_icon_image;
 
