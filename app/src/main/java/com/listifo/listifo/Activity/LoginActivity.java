@@ -9,15 +9,16 @@ import android.widget.Button;
 import com.listifo.listifo.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button buttonLog;
+  //  private Button buttonLog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        buttonLog = findViewById(R.id.btn_login);
+       // buttonLog = findViewById(R.id.btn_login);
 
-        findViewById(R.id.btn_login).setOnClickListener(this);
+
+       findViewById(R.id.btn_login).setOnClickListener(this);
     }
 
     @Override
