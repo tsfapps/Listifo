@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.listifo.listifo.Model.IconModel;
 import com.listifo.listifo.R;
 
@@ -39,9 +40,10 @@ public class AdapterOne extends RecyclerView.Adapter<AdapterOne.MyViewholder> {
 
         IconModel im = IconModels.get(i);
 
-        myViewholder.name.setText(im.getName());
+        myViewholder.tv_icon_title.setText(im.getName());
 
 
+        Glide.with(context).load(im.getImage()).into(myViewholder.iv_icon_image);
     }
 
     @Override
@@ -50,15 +52,16 @@ public class AdapterOne extends RecyclerView.Adapter<AdapterOne.MyViewholder> {
     }
 
     public class MyViewholder extends RecyclerView.ViewHolder{
-        private TextView name;
-        private ImageView image;
+        private TextView tv_icon_title;
+        private ImageView iv_icon_image;
 
 
         public MyViewholder(@NonNull View itemView) {
             super(itemView);
 
-            name = itemView.findViewById(R.id.tv_rec_icon);
-            image = itemView.findViewById(R.id.iv_rec_icon);
+            tv_icon_title = itemView.findViewById(R.id.tv_rec_icon);
+            iv_icon_image = itemView.findViewById(R.id.iv_rec_icon);
         }
+
     }
 }
