@@ -2,6 +2,7 @@ package com.listifo.listifo.Activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,7 +14,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.listifo.listifo.Adapter.AdapterIcon;
+import com.listifo.listifo.Adapter.AdapterSpa;
+import com.listifo.listifo.Adapter.AdapterTrade;
 import com.listifo.listifo.Model.IconModel;
+import com.listifo.listifo.Model.ModelSpa;
+import com.listifo.listifo.Model.ModelTrading;
 import com.listifo.listifo.R;
 
 import java.util.ArrayList;
@@ -28,6 +33,17 @@ public class MainActivity extends AppCompatActivity
     private AdapterIcon adapterIcon;
     private List<IconModel> iconModels;
 
+    // trading rv
+    private List<ModelTrading> modelTradings;
+    private AdapterTrade adapterTrade;
+    private RecyclerView.LayoutManager tlayoutManager;
+    private RecyclerView trecyclerView;
+
+    // spa rv
+    private List<ModelSpa> modelSpas;
+    private AdapterSpa adapterSpa;
+    private RecyclerView.LayoutManager sLayoutManager;
+    private RecyclerView sRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +56,26 @@ public class MainActivity extends AppCompatActivity
         recyclerView = findViewById(R.id.rcvOne);
         layoutManager = new GridLayoutManager(getApplication(),3);
         recyclerView.setLayoutManager(layoutManager);
-
-
         diplay();
         homePageDisplay();
+
+        // rv trading
+
+        trecyclerView = findViewById(R.id.rcvTrad);
+        tlayoutManager = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false);
+        trecyclerView.setLayoutManager(tlayoutManager);
+        trading();
+        listTrading();
+
+
+        //rv  spa
+
+        sRecyclerView = findViewById(R.id.rcvBeaytySpa);
+        sLayoutManager = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false);
+        sRecyclerView.setLayoutManager(sLayoutManager);
+
+        spaRv();
+        listSpaBeauty();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -123,6 +155,27 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    // rv trading
+
+    public void trading(){
+
+        modelTradings = new ArrayList<>();
+        adapterTrade = new AdapterTrade(getApplication(),modelTradings);
+        trecyclerView.setAdapter(adapterTrade);
+
+
+    }
+
+
+    public void spaRv(){
+
+        modelSpas = new ArrayList<>();
+        adapterSpa = new AdapterSpa(getApplication(),modelSpas);
+        sRecyclerView.setAdapter(adapterSpa);
+
+
+    }
+
 
     public void homePageDisplay() {
 
@@ -151,6 +204,68 @@ public class MainActivity extends AppCompatActivity
         }
         adapterIcon.notifyDataSetChanged();
     }
+
+
+//rv tranding
+
+    public void listTrading() {
+
+        int[] imageTrading = new int[]{
+                R.drawable.banner_120,
+                R.drawable.spa,
+                R.drawable.banner_120,
+                R.drawable.banner_120,
+                R.drawable.banner_120,
+                R.drawable.banner_120,
+
+        };
+
+        String[] title = new String[]
+
+                {
+
+                        "Listifo","app","Beauty Spa","Listifo","Listifo","Listifo"
+
+
+                };
+        ModelTrading mdt;
+        for (int i = 0; i < imageTrading.length; i++) {
+            mdt = new ModelTrading(title[i], imageTrading[i]);
+            modelTradings.add(mdt);
+        }
+        adapterTrade.notifyDataSetChanged();
+    }
+
+    //  spa
+    public void listSpaBeauty() {
+
+        int[] imageSpa = new int[]{
+                R.drawable.banner_120,
+                R.drawable.ic_status,
+                R.drawable.spa,
+                R.drawable.spa,
+                R.drawable.spa,
+                R.drawable.spa,
+
+
+
+        };
+
+        String[] title = new String[]
+
+                {"spa","app","Beauty Spa","Listifo","Listifo","Listifo"};
+        ModelSpa spa;
+        for (int i = 0; i < imageSpa.length; i++) {
+            spa = new ModelSpa(title[i], imageSpa[3]);
+            modelSpas.add(spa);
+        }
+        adapterSpa.notifyDataSetChanged();
+    }
+
+
+
+
+
 
 
 
