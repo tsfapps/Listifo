@@ -6,4 +6,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="trending"> <u>Trending</u></string>
+    <string name="beauty_and_spa"><u>Beauty And Spa</u></string>
+    <string name="maintenance_and_repair"><u>Maintenance and Repair</u></string>
 </resources>

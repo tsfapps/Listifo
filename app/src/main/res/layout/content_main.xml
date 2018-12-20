@@ -66,7 +66,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="2dp"
             android:layout_marginTop="2dp"
-            android:text="Beauty And Spa"
+            android:text="@string/beauty_and_spa"
             android:textStyle="bold"
             android:textSize="16sp" />
 
@@ -87,7 +87,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="2dp"
             android:layout_marginTop="2dp"
-            android:text="Beauty And Spa"
+            android:text="@string/maintenance_and_repair"
             android:textStyle="bold"
             android:textSize="16sp" />
 
