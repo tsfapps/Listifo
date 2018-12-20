@@ -10,6 +10,8 @@ import com.listifo.listifo.R;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
   //  private Button buttonLog;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +20,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
        findViewById(R.id.btn_login).setOnClickListener(this);
+       findViewById(R.id.tv_log_reg).setOnClickListener(this );
     }
 
     @Override
