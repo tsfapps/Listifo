@@ -33,10 +33,6 @@
 
             android:text="Listifo Application is based on home service "
             android:textSize="12sp" />
-        <View
-            android:background="@color/colorPrimaryDark"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rcvOne"
