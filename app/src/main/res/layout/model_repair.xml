@@ -7,14 +7,23 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <android.support.v7.widget.CardView
-        android:layout_margin="5dp"
-        android:layout_width="180dp"
-        android:layout_height="100dp"
         android:background="#FFF9F9"
-        android:elevation="20dp"
-        app:cardCornerRadius="5dp">
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+
+
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:elevation="50dp"
+        app:cardCornerRadius="6dp">
+
+
         <LinearLayout
             android:gravity="center"
             android:orientation="vertical"
@@ -22,7 +31,7 @@
             android:layout_height="match_parent">
             <ImageView
                 android:scaleType="centerCrop"
-                android:id="@+id/iv_rec_tr"
+                android:id="@+id/iv_rec_rep"
                 android:src="@drawable/banner_120"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -31,7 +40,7 @@
 
     </android.support.v7.widget.CardView>
     <TextView
-        android:id="@+id/tv_rec_tr"
+        android:id="@+id/tv_rec_rep"
         android:text="Title"
         android:textStyle="normal"
         android:textSize="12sp"

@@ -14,9 +14,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.listifo.listifo.Adapter.AdapterIcon;
+import com.listifo.listifo.Adapter.AdapterRepair;
 import com.listifo.listifo.Adapter.AdapterSpa;
 import com.listifo.listifo.Adapter.AdapterTrade;
 import com.listifo.listifo.Model.IconModel;
+import com.listifo.listifo.Model.ModelRepair;
 import com.listifo.listifo.Model.ModelSpa;
 import com.listifo.listifo.Model.ModelTrading;
 import com.listifo.listifo.R;
@@ -45,6 +47,13 @@ public class MainActivity extends AppCompatActivity
     private RecyclerView.LayoutManager sLayoutManager;
     private RecyclerView sRecyclerView;
 
+    // repair rv
+    private List<ModelRepair> modelRepairs;
+    private AdapterRepair adapterRepair;
+    private RecyclerView.LayoutManager rLayoutManager;
+    private RecyclerView rRecyclerView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +63,7 @@ public class MainActivity extends AppCompatActivity
         // RecyclerView Call
 
         recyclerView = findViewById(R.id.rcvOne);
-        layoutManager = new GridLayoutManager(getApplication(),3);
+        layoutManager = new GridLayoutManager(getApplication(), 2, GridLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
         diplay();
         homePageDisplay();
@@ -76,6 +85,16 @@ public class MainActivity extends AppCompatActivity
 
         spaRv();
         listSpaBeauty();
+
+        //rv repair
+        rRecyclerView = findViewById(R.id.rcvRepair);
+        rLayoutManager = new GridLayoutManager(getApplication(),3);
+        rRecyclerView.setLayoutManager(rLayoutManager);
+
+        displayRepair();
+        repairlistDisplay();
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -155,6 +174,8 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+
+
     // rv trading
 
     public void trading(){
@@ -167,6 +188,8 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+
+
     public void spaRv(){
 
         modelSpas = new ArrayList<>();
@@ -176,16 +199,21 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    public void displayRepair(){
+        modelRepairs = new ArrayList<>();
+        adapterRepair = new AdapterRepair(getApplication(),modelRepairs);
+        rRecyclerView.setAdapter(adapterRepair);
 
-    public void homePageDisplay() {
+    }
+
+
+
+
+    public void repairlistDisplay() {
 
         int[] image = new int[]{
-                R.drawable.ic_status,
-                R.drawable.ic_status,
-                R.drawable.ic_status,
-                R.drawable.ic_status,
-                R.drawable.ic_status,
-                R.drawable.ic_status,
+                R.drawable.tv,  R.drawable.ecom,  R.drawable.tv,  R.drawable.spa,  R.drawable.ecom,  R.drawable.spa,
+
 
         };
 
@@ -193,6 +221,47 @@ public class MainActivity extends AppCompatActivity
 
                 {
 
+                        "Listifo","Application","Beauty Spa","Listifo","Listifo","Listifo"
+
+
+                };
+        ModelRepair iconModel;
+        for (int i = 0; i < image.length; i++) {
+            iconModel = new ModelRepair(title[i], image[i]);
+            modelRepairs.add(iconModel);
+        }
+        adapterRepair.notifyDataSetChanged();
+    }
+
+
+
+
+
+
+
+    public void homePageDisplay() {
+
+        int[] image = new int[]{
+                R.drawable.spa,
+                R.drawable.ic_status,
+                R.drawable.ic_status,
+                R.drawable.ic_status,
+                R.drawable.ic_status,
+                R.drawable.ic_status,
+ R.drawable.spa,
+                R.drawable.ic_status,
+                R.drawable.ic_status,
+                R.drawable.ic_status,
+                R.drawable.ic_status,
+                R.drawable.ic_status
+
+        };
+
+        String[] title = new String[]
+
+                {
+
+                        "Listifo","Application","Beauty Spa","Listifo","Listifo","Listifo",
                         "Listifo","Application","Beauty Spa","Listifo","Listifo","Listifo"
 
 
@@ -236,6 +305,7 @@ public class MainActivity extends AppCompatActivity
         adapterTrade.notifyDataSetChanged();
     }
 
+
     //  spa
     public void listSpaBeauty() {
 
@@ -264,7 +334,28 @@ public class MainActivity extends AppCompatActivity
 
 
 
+    public void list() {
 
+        int[] imageSpa = new int[]{
+                R.drawable.banner_120,
+                R.drawable.ic_status,
+                R.drawable.spa,
+                R.drawable.spa,
+                R.drawable.spa,
+                R.drawable.spa,
+
+        };
+
+        String[] title = new String[]
+
+                {"spa","app","Beauty Spa","Listifo","Listifo","Listifo"};
+        ModelSpa spa;
+        for (int i = 0; i < imageSpa.length; i++) {
+            spa = new ModelSpa(title[i], imageSpa[3]);
+            modelSpas.add(spa);
+        }
+        adapterSpa.notifyDataSetChanged();
+    }
 
 
 
