@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.listifo.listifo.R;
 
@@ -27,10 +26,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.btn_login:
 
-                startActivity(new Intent(this, SingUpActivity.class));
+                startActivity(new Intent(this, MainActivity.class));
 
                 break;
+            case R.id.tv_log_reg:
 
+                startActivity(new Intent(this, SignUpActivity.class));
+                break;
 
 
         }

@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import com.listifo.listifo.R;
 
-public class SingUpActivity extends AppCompatActivity implements View.OnClickListener {
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnSingUp;
 

@@ -8,56 +8,38 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.listifo.listifo.Model.IconModel;
 import com.listifo.listifo.R;
-
 import java.util.List;
 
 public class AdapterIcon extends RecyclerView.Adapter<AdapterIcon.MyViewholder> {
 
-
     private Context context;
     private List<IconModel> IconModels;
-
     public AdapterIcon(Context context, List<IconModel> IconModels) {
         this.context = context;
         this.IconModels = IconModels;
     }
-
     @NonNull
     @Override
     public AdapterIcon.MyViewholder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.model_icon, viewGroup, false);
         return new MyViewholder(view);
-
     }
-
     @Override
     public void onBindViewHolder(@NonNull AdapterIcon.MyViewholder myViewholder, int i) {
-
         IconModel im = IconModels.get(i);
-
         myViewholder.tv_icon_title.setText(im.getName());
-
-
         Glide.with(context).load(im.getImage()).into(myViewholder.iv_icon_image);
     }
-
     @Override
     public int getItemCount() {
-
         return IconModels.size();
-
     }
-
-    public class MyViewholder extends RecyclerView.ViewHolder {
+    class MyViewholder extends RecyclerView.ViewHolder {
         private TextView tv_icon_title;
         private ImageView iv_icon_image;
-
-
         public MyViewholder(@NonNull View itemView) {
             super(itemView);
 
