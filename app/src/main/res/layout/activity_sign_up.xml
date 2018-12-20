@@ -30,7 +30,7 @@
             android:layout_marginTop="30dp"
             android:text="Listifo"
             android:textStyle="bold"
-            android:textColor="@color/red_dark"
+            android:textColor="@color/colorPrimaryDark"
             android:textAllCaps="true"
             android:textSize="25sp" />
 
@@ -130,12 +130,13 @@
                 android:id="@+id/btn_singUp"
                 style="Button.Primary"
                 android:layout_width="match_parent"
-                android:background="#3b5998"
+                android:background="@color/colorPrimaryDark"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="15dp"
                 android:padding="10dp"
-                android:text="Sing"
+                android:textAllCaps="false"
+                android:text="Sign Up"
                 android:textColor="@color/white"
                 android:textSize="18dp" />
         </LinearLayout>
